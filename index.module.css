@@ -1,0 +1,80 @@
+:root{
+    --blue:#36c5f0;
+    --green:#2eb67d;
+    --yellow:#ecb22e;
+    --red: #e01e5a;
+    --background:  #4a154b;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: var(--background);
+    display: grid;
+    height: 100vh;
+    place-content: center;
+}
+
+.container{
+    width: 300px;
+    aspect-ratio: 1;
+    background-color: white;
+    display: grid;
+    grid-template-columns: repeat(2,1fr); 
+    border-radius: 50%;
+}
+.container > div{
+     display: flex;
+     align-items: flex-end;
+     justify-content: flex-end;
+     flex-direction: column;
+     gap: 7px;
+     padding: 3px;
+     color: var(--blue);
+}
+
+
+.container > div::before{
+      content: "";
+      height: 4rem;
+      aspect-ratio: 1;
+      background-color: currentColor;
+      border-radius: 50% 50% 0 50%;
+      
+}
+.container >div::after{
+      content: "";
+      border-radius: 50px;
+      width: 7rem;
+      height: 3rem;
+      aspect-ratio: 1;
+      background-color: currentColor;
+      animation: logoAni 2.5s ease infinite;
+}
+
+@keyframes logoAni{
+  0%{
+    margin:-3rem;
+    transform:rotate(0deg)
+  }
+  100%{
+    margin:0;
+    transform:rotate(720deg)
+  }
+}
+
+.container>:nth-child(2){
+    transform: rotate(90deg);
+    color: var(--green);
+}
+.container>:nth-child(3){
+    transform: rotate(270deg);
+    color: var(--red);
+}
+.container>:nth-child(4){
+    transform: rotate(180deg);
+    color: var(--yellow);
+}
